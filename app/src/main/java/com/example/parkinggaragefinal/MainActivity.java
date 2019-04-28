@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
     {
         EditText username = (EditText) findViewById(R.id.username);
         EditText password = (EditText) findViewById(R.id.password);
-        if(username.getText().equals("hello")&&password.getText().equals("password"))
+        if(username.getText().toString().equals("hello"))
         {
-            Intent login = new Intent(getApplicationContext(),GarageActivity.class);
+            Intent login = new Intent(getApplicationContext(), GarageActivity.class);
             startActivity(login);
         }
         else
