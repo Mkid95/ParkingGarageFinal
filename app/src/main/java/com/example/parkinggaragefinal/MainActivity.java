@@ -1,11 +1,11 @@
 package com.example.parkinggaragefinal;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,13 +22,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                EditText username = (EditText) findViewById(R.id.username);
-                EditText password = (EditText) findViewById(R.id.password);
-                if (username.getText().equals("hi"))
-                {
-                    //setContentView(R.layout.garageui);
-                }
+                logIn();
             }
         });
+    }
+
+    private void logIn()
+    {
+        EditText username = (EditText) findViewById(R.id.username);
+        EditText password = (EditText) findViewById(R.id.password);
+        if(username.getText().equals("hello")&&password.getText().equals("password"))
+        {
+            Intent login = new Intent(getApplicationContext(),GarageActivity.class);
+            startActivity(login);
+        }
+        else
+        {
+            AlertDialog.Builder incorrectLogin = new AlertDialog.Builder(MainActivity.this);
+
+            incorrectLogin.setCancelable(true);
+            incorrectLogin.setTitle("Incorrect login information");
+            incorrectLogin.setMessage("The username/password entered was incorrect.");
+
+            incorrectLogin.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            incorrectLogin.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            incorrectLogin.show();
+        }
+
     }
 }

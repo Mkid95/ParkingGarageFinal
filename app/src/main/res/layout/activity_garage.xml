@@ -11,12 +11,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="8dp">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="223dp"
-            android:layout_height="232dp"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
-    </LinearLayout>
+        tools:layout_editor_absoluteY="8dp"/>
 </android.support.constraint.ConstraintLayout>

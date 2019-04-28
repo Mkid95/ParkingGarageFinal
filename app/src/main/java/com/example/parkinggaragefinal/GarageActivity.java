@@ -16,8 +16,15 @@ public class GarageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_garage);
         parent=(LinearLayout)findViewById(R.id.layout);
-        String[] buttons_names = new String[30];
-        //ImageView image = new ImageView(R.id.imageView);
+        //ImageView image = (ImageView) findViewById(R.id.imageView);
+        //image.setOnClickListener(new View.OnClickListener()
+       // {
+      //      @Override
+       //     public void onClick(View view)
+        //    {
+
+      //      }
+       // });
     }
 }
 
