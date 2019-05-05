@@ -1,13 +1,6 @@
 package com.example.parkinggaragefinal;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
@@ -93,26 +86,22 @@ public class Data
     }
     public static void WriteAccountData(Account x)
     {
-        deleteEND();
-        BufferedWriter bw = null;
         try
         {
-            bw = new BufferedWriter(new FileWriter("DATA_TEST.txt", true));
-            bw.newLine();
-            bw.write("End");
-            bw.flush();
+            File f = new File("DATA.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+            for (int i = 0;i < 30;i++)
+            {
+                oos.writeObject(Accounts.get(usernames.get(i)));
+            }
+            oos.flush();
+            oos.close();
         } catch (IOException ioe)
         {
             ioe.printStackTrace();
         } finally
         {
-            if (bw != null)
-                try
-                {
-                    bw.close();
-                } catch (IOException ioe2)
-                {
-                }
+
         }
     }
     public static void generate() throws FileNotFoundException
@@ -152,15 +141,6 @@ public class Data
             Accounts.put(x.getUsername(), x);
             System.out.println(x.toString());
 
-        }
-        for(int i = 0; i < 1500; i++)
-        {
-            String firstName = girls[r.nextInt(599)];
-            String lastName = last[r.nextInt(2000)];
-            String password = generatePassword();
-            Vehicle vehicle = generateVehicle();
-            Account x = new Account(firstName, lastName, password, vehicle);
-            Accounts.put(x.getUsername(), x);
         }
     }
     public static String generatePassword()
