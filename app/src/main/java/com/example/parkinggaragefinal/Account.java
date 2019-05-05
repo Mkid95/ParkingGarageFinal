@@ -1,7 +1,7 @@
 package com.example.parkinggaragefinal;
 
 
-public class Account {
+public class Account implements java.io.Serializable {
 
     private String firstName, lastName, id, password, username;
     private boolean isAdmin;

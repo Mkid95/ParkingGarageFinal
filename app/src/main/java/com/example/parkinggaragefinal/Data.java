@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.Random;
 import java.util.Scanner;
@@ -39,8 +40,6 @@ public class Data
                 String ID = read.next();
                 boolean gender = read.nextBoolean();
                 double GPA = read.nextDouble();
-                //Accounts.put(username, new Account(username, password, ));
-                //usernames.add(email);
             }
             else
             {
@@ -48,7 +47,7 @@ public class Data
                 return;
             }
         }
-        // System.out.println(Accounts.get("DustinKBerry@armyspy.com").toString());
+
         read.close();
     }
 
@@ -99,8 +98,6 @@ public class Data
         try
         {
             bw = new BufferedWriter(new FileWriter("DATA_TEST.txt", true));
-            //bw.newLine();
-            //bw.write(x.getEmail()+"\t"+x.getNickname()+"\t"+x.getPassword()+"\t"+x.getHobbies()[0]+"\t"+x.getHobbies()[1]+"\t"+x.getHobbies()[2]+"\t"+x.getHobbies()[3]+"\t"+x.getHobbies()[4]+"\t"+x.getHobbies()[5]);
             bw.newLine();
             bw.write("End");
             bw.flush();
@@ -150,8 +147,8 @@ public class Data
             String firstName = boys[r.nextInt(600)];
             String lastName = last[r.nextInt(2000)];
             String password = generatePassword();
-            double GPA = Math.random() * 4.0;
-            Account x = new Account(firstName, lastName, password);
+            Vehicle vehicle = generateVehicle();
+            Account x = new Account(firstName, lastName, password, vehicle);
             Accounts.put(x.getUsername(), x);
             System.out.println(x.toString());
 
@@ -161,8 +158,8 @@ public class Data
             String firstName = girls[r.nextInt(599)];
             String lastName = last[r.nextInt(2000)];
             String password = generatePassword();
-            double GPA = Math.random() * 4.0;
-            Account x = new Account(firstName, lastName, password);
+            Vehicle vehicle = generateVehicle();
+            Account x = new Account(firstName, lastName, password, vehicle);
             Accounts.put(x.getUsername(), x);
         }
     }
@@ -193,5 +190,19 @@ public class Data
                 * Math.random());
         sb.append(special.charAt(index));
         return sb.toString();
+    }
+    public static Vehicle generateVehicle()
+    {
+        Random r = new Random();
+        try {
+            Date d2 = new Date(23232232328L);
+            Vehicle vehicle = new Vehicle(r.nextInt(3),d2);
+            return vehicle;
+        } catch (InvalidVehicleException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

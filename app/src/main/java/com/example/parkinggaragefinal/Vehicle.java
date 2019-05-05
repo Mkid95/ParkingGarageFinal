@@ -1,13 +1,24 @@
 package com.example.parkinggaragefinal;
 import java.util.Date;
 
-public class Vehicle {
+public class Vehicle implements java.io.Serializable{
     private final int CAR = 0, TRUCK = 1, MOTORCYCLE = 2;
     private int vehicleType;
     Date origin;
 
 
-    public Vehicle(int vehicleType)throws Exception{
+    public Vehicle(int vehicleType)throws InvalidVehicleException{
+        if(vehicleType>3||vehicleType<0)
+        {
+            throw new InvalidVehicleException();
+        }
+        else
+        {
+            this.vehicleType = vehicleType;
+        }
+        origin = new Date();
+    }
+    public Vehicle(int vehicleType, Date origin)throws Exception{
         if(vehicleType>3||vehicleType<0)
         {
             throw new Exception();
@@ -16,7 +27,7 @@ public class Vehicle {
         {
             this.vehicleType = vehicleType;
         }
-        origin = new Date();
+        this.origin = origin;
     }
 
     public int getVehicleType() {
