@@ -1,11 +1,14 @@
 package com.example.parkinggaragefinal;
 
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Random;
 import java.util.Scanner;
+import android.content.res.AssetManager;
+import java.io.FileNotFoundException;
 
 public class Data
 {
@@ -84,12 +87,13 @@ public class Data
             ex.printStackTrace();
         }
     }
-    public static void WriteAccountData()
+    public static void WriteAccountData(AssetManager manager)
     {
         try
         {
-            File f = new File("DATA.txt");
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+            //File f = new File("DATA.txt");
+            manager.openFd("DATA.txt").createOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(manager.openFd("DATA.txt").createOutputStream());
             for (int i = 0;i < 30;i++)
             {
                 oos.writeObject(Accounts.get(usernames.get(i)));
@@ -104,14 +108,16 @@ public class Data
 
         }
     }
-    public static void generate() throws FileNotFoundException
+    public static void generate(AssetManager manager) throws IOException
     {
-        File fileBoys = new File("boys_names.txt");
-        Scanner readBoys = new Scanner(fileBoys);
-        File fileGirls = new File("girls_names.txt");
-        Scanner readGirls = new Scanner(fileGirls);
-        File fileLast = new File("Last Names.txt");
-        Scanner readLast = new Scanner(fileLast);
+        InputStream is = manager.open("boys_names.txt");
+        Scanner readBoys = new Scanner(is);
+       // File fileGirls = new File("girls_names.txt");
+        InputStream is2 = manager.open("girls_names.txt");
+        Scanner readGirls = new Scanner(is2);
+       // File fileLast = new File("Last Names.txt");
+        InputStream is3 = manager.open("Last Names.txt");
+        Scanner readLast = new Scanner(is3);
         String[] boys = new String[600];
         String[] girls = new String[599];
         String[] last = new String[2000];
@@ -150,6 +156,7 @@ public class Data
             Vehicle vehicle = generateVehicle();
             Account x = new Account(firstName, lastName, password, vehicle);
             Accounts.put(x.getUsername(), x);
+            usernames.add(x.getUsername());
             System.out.println(x.toString());
 
         }

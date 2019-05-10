@@ -9,13 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //test push from laptop
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                     try {
-                        Data.generate();
-                        Data.WriteAccountData();
-                    } catch (FileNotFoundException e) {
+                        Data.generate(getAssets());
+                        Data.WriteAccountData(getAssets());
+                    } catch (IOException e) {
                         AlertDialog.Builder fail = new AlertDialog.Builder(MainActivity.this);
 
                         fail.setCancelable(true);
@@ -64,11 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void logIn()
     {
-        EditText username = (EditText) findViewById(R.id.username);
-        EditText password = (EditText) findViewById(R.id.password);
-        if(username.getText().toString().equals("hello"))
+        EditText username = findViewById(R.id.username);
+        EditText password = findViewById(R.id.password);
+        String susername = username.getText().toString();
+        String spassword = password.getText().toString();
+        if(Data.getUsernames().contains(susername.toString())&&
+                Data.getAccounts().get(susername).getPassword().equals(spassword))
         {
             Intent login = new Intent(getApplicationContext(), GarageActivity.class);
+            login.putExtra("com.example.parkinggaragefinal.username", susername);
             startActivity(login);
         }
         else
