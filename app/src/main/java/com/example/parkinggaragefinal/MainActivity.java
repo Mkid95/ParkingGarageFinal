@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.FileNotFoundException;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +26,38 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 logIn();
+            }
+        });
+        Button buttonGenerate = (Button) findViewById(R.id.buttonGenerate);
+        buttonGenerate.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                    try {
+                        Data.generate();
+                        Data.WriteAccountData();
+                    } catch (FileNotFoundException e) {
+                        AlertDialog.Builder fail = new AlertDialog.Builder(MainActivity.this);
+
+                        fail.setCancelable(true);
+                        fail.setTitle("Fail");
+                        fail.setMessage("DAMN IT");
+
+                        fail.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        fail.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        fail.show();
+                    }
             }
         });
     }

@@ -84,7 +84,7 @@ public class Data
             ex.printStackTrace();
         }
     }
-    public static void WriteAccountData(Account x)
+    public static void WriteAccountData()
     {
         try
         {
@@ -131,9 +131,20 @@ public class Data
             n++;
         }
         Random r = new Random();
-        for(int i = 0; i < 1500; i++)
+        for(int i = 0; i < 30; i++)
         {
-            String firstName = boys[r.nextInt(600)];
+
+            String firstNameBoys = boys[r.nextInt(600)];
+            String firstNameGirls = girls[r.nextInt(599)];
+            String firstName;
+            if(r.nextInt(1)== 1)
+            {
+                firstName = firstNameGirls;
+            }
+            else
+            {
+                firstName = firstNameBoys;
+            }
             String lastName = last[r.nextInt(2000)];
             String password = generatePassword();
             Vehicle vehicle = generateVehicle();
