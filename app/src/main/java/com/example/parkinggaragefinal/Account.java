@@ -16,6 +16,12 @@ public class Account implements java.io.Serializable {
         this.isAdmin = true;
     }
 
+    public Account(String username, String password) {
+        this.password = password;
+        this.username = username;
+        this.isAdmin = true;
+    }
+
     public Account(String firstName, String lastName, String password, Vehicle vehicle) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -75,6 +81,9 @@ public class Account implements java.io.Serializable {
         return vehicle;
     }
 
+    public boolean isAdmin() {
+        return isAdmin;
+    }
 
     private static String generateID()
     {

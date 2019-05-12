@@ -160,6 +160,9 @@ public class Data
             System.out.println(x.toString());
 
         }
+        Account admin = new Account("Mkid", "1453");
+        Accounts.put("Mkid",admin);
+        usernames.add(admin.getUsername());
     }
     public static String generatePassword()
     {
