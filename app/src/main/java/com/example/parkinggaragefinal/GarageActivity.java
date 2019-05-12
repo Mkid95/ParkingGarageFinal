@@ -4,9 +4,10 @@ import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
-public class GarageActivity extends AppCompatActivity {
+public class GarageActivity extends AppCompatActivity implements Vehicles{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +19,7 @@ public class GarageActivity extends AppCompatActivity {
         }
         else
         {
-            user(user);
+            user(account);
         }
     }
 
@@ -26,11 +27,31 @@ public class GarageActivity extends AppCompatActivity {
     {
         setContentView(R.layout.activity_garage);
     }
-    protected void user(String user)
+    protected void user(Account user)
     {
         setContentView(R.layout.ticket);
         ImageView image = findViewById(R.id.vehicleimage);
-        image.setImageResource(R.drawable.truck);
+        setImage(image, user.getVehicle().getVehicleType());
+        TextView tvName = findViewById(R.id.tvName);
+        tvName.setText("Name: "+user.getFirstName()+" "+user.getLastName());
+        TextView tvLicense = findViewById(R.id.tvLicense);
+        tvLicense.setText(user.getVehicle().getLicense());
+    }
+    protected void setImage(ImageView image, int vehicleType)
+    {
+        switch (vehicleType)
+        {
+            case CAR:
+                image.setImageResource(R.drawable.car);
+                break;
+            case TRUCK:
+                image.setImageResource(R.drawable.truck);
+                break;
+            case MOTORCYCLE:
+                image.setImageResource(R.drawable.cycle);
+                break;
+        }
+
     }
 }
 

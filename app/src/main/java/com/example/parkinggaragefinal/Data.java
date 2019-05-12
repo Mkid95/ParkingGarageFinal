@@ -197,13 +197,35 @@ public class Data
         Random r = new Random();
         try {
             Date d2 = new Date(23232232328L);
-            Vehicle vehicle = new Vehicle(r.nextInt(3),d2);
+            Vehicle vehicle = new Vehicle(r.nextInt(3),d2, generateLicense());
             return vehicle;
         } catch (InvalidVehicleException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return new Vehicle();
+    }
+    public static String generateLicense()
+    {
+        StringBuilder sb = new StringBuilder(8);
+        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String number = "0123456789";
+        for(int i = 0; i < 3; i++)
+        {
+            int index
+                    = (int)(upper.length()
+                    * Math.random());
+            sb.append(upper.charAt(index));
+        }
+        sb.append("-");
+        for(int i = 0; i < 4; i++)
+        {
+            int index
+                    = (int)(number.length()
+                    * Math.random());
+            sb.append(number.charAt(index));
+        }
+        return sb.toString();
     }
 }

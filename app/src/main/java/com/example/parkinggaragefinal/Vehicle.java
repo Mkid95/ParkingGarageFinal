@@ -2,12 +2,12 @@ package com.example.parkinggaragefinal;
 import java.util.Date;
 
 public class Vehicle implements java.io.Serializable{
-    private final int CAR = 0, TRUCK = 1, MOTORCYCLE = 2;
     private int vehicleType;
+    private String license;
     Date origin;
 
 
-    public Vehicle(int vehicleType)throws InvalidVehicleException{
+    public Vehicle(int vehicleType, String license)throws InvalidVehicleException{
         if(vehicleType>3||vehicleType<0)
         {
             throw new InvalidVehicleException();
@@ -17,8 +17,9 @@ public class Vehicle implements java.io.Serializable{
             this.vehicleType = vehicleType;
         }
         origin = new Date();
+        this.license = license;
     }
-    public Vehicle(int vehicleType, Date origin)throws Exception{
+    public Vehicle(int vehicleType, Date origin, String license)throws Exception{
         if(vehicleType>3||vehicleType<0)
         {
             throw new Exception();
@@ -28,6 +29,12 @@ public class Vehicle implements java.io.Serializable{
             this.vehicleType = vehicleType;
         }
         this.origin = origin;
+        this.license = license;
+    }
+    public Vehicle(){
+        this.vehicleType = 1;
+        origin = new Date();
+        this.license = "WRONG";
     }
 
     public int getVehicleType() {
@@ -46,5 +53,17 @@ public class Vehicle implements java.io.Serializable{
         hours = hours/(1000 * 60 * 60);
         return hours;
 
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vehicleType=" + vehicleType +
+                ", license='" + license + '\'' +
+                '}';
     }
 }

@@ -29,12 +29,13 @@ public class Account implements java.io.Serializable {
         this.password = password;
         this.username = generateUser();
         this.isAdmin = false;
+        this.vehicle = vehicle;
     }
 
 
     @Override
     public String toString() {
-        return "Account{" + "password: " + password + ", username: " + username + '}';
+        return "Account{" + "password: " + password + ", username: " + username + "} " + vehicle.toString();
     }
 
     public void setFirstName(String firstName) {
