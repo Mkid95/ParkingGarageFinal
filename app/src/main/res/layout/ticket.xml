@@ -22,8 +22,8 @@
         <ImageView
             android:id="@+id/vehicleimage"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerInside"
+            android:layout_height="210dp"
+            android:scaleType="fitEnd"
             app:srcCompat="@drawable/car" />
 
         <TextView
@@ -60,5 +60,12 @@
             android:layout_height="wrap_content"
             android:text="Park Time:"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/Back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:visibility="gone" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

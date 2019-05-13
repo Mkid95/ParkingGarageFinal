@@ -65,6 +65,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A3"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -72,6 +73,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B3"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -86,6 +88,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A4"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -93,6 +96,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B4"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -107,6 +111,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A5"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -114,6 +119,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B5"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -128,6 +134,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A6"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -135,6 +142,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B6"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -149,6 +157,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A7"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -156,6 +165,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B7"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -170,6 +180,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A8"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -177,6 +188,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B8"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -191,6 +203,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A9"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -198,6 +211,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B9"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -212,6 +226,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A10"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -219,6 +234,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B10"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -233,6 +249,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A11"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -240,6 +257,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B11"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -254,6 +272,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A12"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -261,6 +280,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B12"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -275,6 +295,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A13"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -282,6 +303,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B13"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -296,6 +318,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A14"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -303,6 +326,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B14"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -317,6 +341,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/A15"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -324,6 +349,7 @@
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
+                android:id="@+id/B15"
                 android:layout_width="200dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
