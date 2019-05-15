@@ -1,7 +1,7 @@
 package com.example.parkinggaragefinal;
 import java.util.Date;
 
-public class Vehicle implements java.io.Serializable{
+public class Vehicle implements java.io.Serializable, Vehicles{
     private int vehicleType;
     private String license;
     Date origin;
@@ -65,5 +65,23 @@ public class Vehicle implements java.io.Serializable{
                 "vehicleType=" + vehicleType +
                 ", license='" + license + '\'' +
                 '}';
+    }
+
+    public double getRates()
+    {
+        int i;
+        if(isEB())
+        {
+            i=0;
+        }
+        else
+        {
+            i=1;
+        }
+        return rates[getVehicleType()][i];
+    }
+
+    private boolean isEB() {
+        return true;
     }
 }

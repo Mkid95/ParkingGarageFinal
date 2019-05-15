@@ -52,16 +52,21 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
     protected void user(Account user)
     {
         setContentView(R.layout.ticket);
+
         ImageView image = findViewById(R.id.vehicleimage);
         setImage(image, user.getVehicle().getVehicleType());
+
         TextView tvName = findViewById(R.id.tvName);
         tvName.setText("Name: "+user.getFirstName()+" "+user.getLastName());
         TextView tvLicense = findViewById(R.id.tvLicense);
         tvLicense.setText("License: "+user.getVehicle().getLicense());
         TextView tvType = findViewById(R.id.tvType);
         tvType.setText("Vehicle Type: "+svehicle[user.getVehicle().getVehicleType()]);
-        TextView tvParkTime = findViewById(R.id.tvType);
-        tvParkTime.setText(user.getVehicle().getOrigin().toString());
+        //String rate = getRate(user.getVehicle());
+        TextView tvRate = findViewById(R.id.tvRate);
+        tvRate.setText("Rate: "+user.getVehicle().getRates());
+        TextView tvParkTime = findViewById(R.id.tvParkTime);
+        tvParkTime.setText("Park Time: "+user.getVehicle().getOrigin().toString());
         if(Data.getAccounts().get(username).isAdmin())
         {
             Button back = findViewById(R.id.Back);
@@ -69,7 +74,7 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    setContentView(R.layout.activity_garage);
+                    admin();
                 }
             });
         }
