@@ -61,6 +61,13 @@
             android:text="Park Time:"
             android:textSize="24sp" />
 
+        <TextView
+            android:id="@+id/tvCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost:"
+            android:textSize="24sp" />
+
         <Button
             android:id="@+id/Back"
             android:layout_width="match_parent"

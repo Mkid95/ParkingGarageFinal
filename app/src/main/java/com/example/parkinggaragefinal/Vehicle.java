@@ -1,10 +1,12 @@
 package com.example.parkinggaragefinal;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Vehicle implements java.io.Serializable, Vehicles{
     private int vehicleType;
     private String license;
-    Date origin;
+    private Date origin;
+    Calendar c = Calendar.getInstance();
 
 
     public Vehicle(int vehicleType, String license)throws InvalidVehicleException{
@@ -45,8 +47,9 @@ public class Vehicle implements java.io.Serializable, Vehicles{
         return origin;
     }
 
-    public long getHours(Date date)
+    public long getHours()
     {
+        Date date = new Date();
         long current = date.getTime();
         long prev = origin.getTime();
         long hours = current - prev;

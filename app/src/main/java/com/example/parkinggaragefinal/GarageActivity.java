@@ -66,7 +66,10 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
         TextView tvRate = findViewById(R.id.tvRate);
         tvRate.setText("Rate: "+user.getVehicle().getRates());
         TextView tvParkTime = findViewById(R.id.tvParkTime);
-        tvParkTime.setText("Park Time: "+user.getVehicle().getOrigin().toString());
+        tvParkTime.setText("Park Time: "+user.getVehicle().getOrigin().toString()+" ("+user.getVehicle().getHours()+" Hours)");
+        TextView tvCost = findViewById(R.id.tvCost);
+        double cost = user.getVehicle().getHours() * user.getVehicle().getRates();
+        tvCost.setText("Cost: "+cost);
         if(Data.getAccounts().get(username).isAdmin())
         {
             Button back = findViewById(R.id.Back);

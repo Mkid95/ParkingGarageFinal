@@ -20,6 +20,7 @@ public class Data
         return usernames;
     }
 
+
     public static void loadAccounts() throws Exception
     {
         File file = new File("DATA_TEST.txt");
@@ -196,7 +197,7 @@ public class Data
     {
         Random r = new Random();
         try {
-            Date d2 = new Date(23232232328L);
+            Date d2 = new Date(1558000890000L);
             Vehicle vehicle = new Vehicle(r.nextInt(3),d2, generateLicense());
             return vehicle;
         } catch (InvalidVehicleException e) {
