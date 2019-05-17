@@ -49,7 +49,7 @@ public class Vehicle implements java.io.Serializable, Vehicles{
 
     public long getHours()
     {
-        Date date = new Date();
+        Date date = new Date(1558040890000L);
         long current = date.getTime();
         long prev = origin.getTime();
         long hours = current - prev;

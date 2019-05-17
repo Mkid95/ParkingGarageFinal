@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Calendar;
 
+
+//todo fix time, fix license, make admin first.
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             {
                     try {
                         Data.generate(getAssets());
-                        Data.WriteAccountData(getAssets());
+                        //Data.WriteAccountData(getAssets());
                     } catch (IOException e) {
                         AlertDialog.Builder fail = new AlertDialog.Builder(MainActivity.this);
 

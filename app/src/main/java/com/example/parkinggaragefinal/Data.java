@@ -113,10 +113,8 @@ public class Data
     {
         InputStream is = manager.open("boys_names.txt");
         Scanner readBoys = new Scanner(is);
-       // File fileGirls = new File("girls_names.txt");
         InputStream is2 = manager.open("girls_names.txt");
         Scanner readGirls = new Scanner(is2);
-       // File fileLast = new File("Last Names.txt");
         InputStream is3 = manager.open("Last Names.txt");
         Scanner readLast = new Scanner(is3);
         String[] boys = new String[600];
@@ -138,7 +136,10 @@ public class Data
             n++;
         }
         Random r = new Random();
-        for(int i = 0; i < 30; i++)
+        Account admin = new Account("Mkid", "1453");
+        Accounts.put("Mkid",admin);
+        usernames.add(admin.getUsername());
+        for(int i = 0; i < r.nextInt(15)+10; i++)
         {
 
             String firstNameBoys = boys[r.nextInt(600)];
@@ -161,9 +162,14 @@ public class Data
             System.out.println(x.toString());
 
         }
-        Account admin = new Account("Mkid", "1453");
-        Accounts.put("Mkid",admin);
-        usernames.add(admin.getUsername());
+    }
+    public static String addAccount(String first, String last, Vehicle vehicle)
+    {
+        Account account = new Account(first, last,generatePassword(), vehicle);
+        String username = account.getUsername();
+        Accounts.put(username,account);
+        usernames.add(username);
+        return username;
     }
     public static String generatePassword()
     {
