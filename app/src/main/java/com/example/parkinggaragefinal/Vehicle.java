@@ -49,8 +49,7 @@ public class Vehicle implements java.io.Serializable, Vehicles{
 
     public long getHours()
     {
-        Date date = new Date(1558040890000L);
-        long current = date.getTime();
+        long current = simulatedDate.getTime();
         long prev = origin.getTime();
         long hours = current - prev;
         hours = hours/(1000 * 60 * 60);
@@ -84,7 +83,23 @@ public class Vehicle implements java.io.Serializable, Vehicles{
         return rates[getVehicleType()][i];
     }
 
+    public double getCost()
+    {
+
+        if(isEB())
+        {
+            return getRates();
+        }
+        else {
+            return getRates() * getHours();
+        }
+    }
+
     private boolean isEB() {
-        return true;
+        Date date = new Date(10800000L+1558000890000L); //if before 9am
+        if(origin.before(date)) {
+            return true;
+        }
+        return false;
     }
 }

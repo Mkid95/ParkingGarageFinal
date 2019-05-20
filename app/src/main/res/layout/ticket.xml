@@ -22,7 +22,7 @@
         <ImageView
             android:id="@+id/vehicleimage"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
+            android:layout_height="250dp"
             android:scaleType="fitEnd"
             app:srcCompat="@drawable/car" />
 
@@ -62,6 +62,13 @@
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/tvCurrentTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Time:"
+            android:textSize="24sp" />
+
+        <TextView
             android:id="@+id/tvCost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,10 +76,16 @@
             android:textSize="24sp" />
 
         <Button
+            android:id="@+id/unPark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Print Receipt " />
+
+        <Button
             android:id="@+id/Back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Back"
-            android:visibility="gone" />
+            android:visibility="invisible" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

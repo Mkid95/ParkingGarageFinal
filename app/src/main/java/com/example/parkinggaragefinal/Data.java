@@ -3,6 +3,7 @@ package com.example.parkinggaragefinal;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Random;
@@ -171,6 +172,13 @@ public class Data
         usernames.add(username);
         return username;
     }
+    public static void removeAccount(String username)
+    {
+        System.out.println(Arrays.toString(usernames.toArray()));
+        Accounts.remove(username);
+        usernames.remove(username);
+        System.out.println(Arrays.toString(usernames.toArray()));
+    }
     public static String generatePassword()
     {
         StringBuilder sb = new StringBuilder(8);
@@ -203,7 +211,10 @@ public class Data
     {
         Random r = new Random();
         try {
-            Date d2 = new Date(1558000890000L);
+            long leftLimit = 1L;
+            long rightLimit = 39600000L;
+            long generatedLong = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
+            Date d2 = new Date(1558000890000L+generatedLong);
             Vehicle vehicle = new Vehicle(r.nextInt(3),d2, generateLicense());
             return vehicle;
         } catch (InvalidVehicleException e) {

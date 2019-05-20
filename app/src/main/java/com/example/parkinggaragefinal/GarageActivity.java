@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import java.util.Arrays;
@@ -39,7 +38,7 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
         }
         else
         {
-            user(account);
+            user(account, -1);
         }
     }
 
@@ -67,15 +66,16 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
             int k = numbersC.pop();
             setImage(lots[k], Data.getAccounts().get(Data.getUsernames().get(i+1)).getVehicle().getVehicleType());
             final int j = i+1;
+            final int l = k;
             lots[k].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    user(Data.getAccounts().get(Data.getUsernames().get(j)));
+                    user(Data.getAccounts().get(Data.getUsernames().get(j)),l);
                 }
             });
         }
     }
-    protected void user(Account user)
+    protected void user(Account user, int i)
     {
         setContentView(R.layout.ticket);
 
@@ -92,9 +92,51 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
         tvRate.setText("Rate: "+user.getVehicle().getRates());
         TextView tvParkTime = findViewById(R.id.tvParkTime);
         tvParkTime.setText("Park Time: "+user.getVehicle().getOrigin().toString()+" ("+user.getVehicle().getHours()+" Hours)");
+        TextView tvCurrentTime = findViewById(R.id.tvCurrentTime);
+        tvCurrentTime.setText("Current Time: "+simulatedDate.toString());
         TextView tvCost = findViewById(R.id.tvCost);
-        double cost = user.getVehicle().getHours() * user.getVehicle().getRates();
-        tvCost.setText("Cost: "+cost);
+        tvCost.setText("Cost: "+user.getVehicle().getCost());
+        final Button unPark = findViewById(R.id.unPark);
+        final String username2 = user.getUsername();
+        final int j = i;
+        unPark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Data.removeAccount(username2);
+                if(Data.getAccounts().containsKey(username2)&& Data.getAccounts().get(username2).isAdmin())
+                {
+                    System.out.println(Arrays.toString(numbers.toArray()));
+                    numbers.remove(new Integer(j));
+                    System.out.println(Arrays.toString(numbers.toArray()));
+                    numbers.add(j);
+                    System.out.println(Arrays.toString(numbers.toArray()));
+                    admin();
+                }
+                else
+                {
+                    unPark.setVisibility(View.INVISIBLE);
+                    AlertDialog.Builder fail = new AlertDialog.Builder(GarageActivity.this);
+
+                    fail.setCancelable(true);
+                    fail.setTitle("Ticket is now Printing");
+                    fail.setMessage("Please present your ticket to the administrator");
+
+                    fail.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    fail.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    fail.show();
+                }
+            }
+        });
         if(Data.getAccounts().get(username).isAdmin())
         {
             Button back = findViewById(R.id.Back);
