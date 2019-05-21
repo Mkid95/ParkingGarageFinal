@@ -174,10 +174,8 @@ public class Data
     }
     public static void removeAccount(String username)
     {
-        System.out.println(Arrays.toString(usernames.toArray()));
         Accounts.remove(username);
         usernames.remove(username);
-        System.out.println(Arrays.toString(usernames.toArray()));
     }
     public static String generatePassword()
     {

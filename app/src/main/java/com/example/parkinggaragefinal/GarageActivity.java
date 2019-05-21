@@ -98,13 +98,14 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
         tvCost.setText("Cost: "+user.getVehicle().getCost());
         final Button unPark = findViewById(R.id.unPark);
         final String username2 = user.getUsername();
+        final String username1 = username;
         final int j = i;
         unPark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Data.removeAccount(username2);
-                if(Data.getAccounts().containsKey(username2)&& Data.getAccounts().get(username2).isAdmin())
+                if(Data.getAccounts().containsKey(username1)&& Data.getAccounts().get(username1).isAdmin())
                 {
+                    Data.removeAccount(username2);
                     System.out.println(Arrays.toString(numbers.toArray()));
                     numbers.remove(new Integer(j));
                     System.out.println(Arrays.toString(numbers.toArray()));
@@ -114,6 +115,7 @@ public class GarageActivity extends AppCompatActivity implements Vehicles{
                 }
                 else
                 {
+                    Data.removeAccount(username2);
                     unPark.setVisibility(View.INVISIBLE);
                     AlertDialog.Builder fail = new AlertDialog.Builder(GarageActivity.this);
 
