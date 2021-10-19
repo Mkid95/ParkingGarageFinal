@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.Calendar;
 
 
-//todo fix time, fix license, make admin first.
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
